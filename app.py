@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 from os import environ
 from data.read import read
-from data.vod import vod
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', vod=vod())
+    return render_template('index.html', vod=read())
 
 
 @app.post('/update_vod')
@@ -21,5 +20,6 @@ if __name__ == '__main__':
 
     if run_state == 'production':
         app.run()
+
     else:
         app.run(debug=True)

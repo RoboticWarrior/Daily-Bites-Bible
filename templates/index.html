@@ -4,122 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Bites</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #faf7f2; /* Warm, bread-inspired off-white */
-            color: #2d2926;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-
-        /* Header - Center Top */
-        header {
-            text-align: center;
-            padding: 1.5rem 0;
-        }
-
-        h1 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 2.75rem;
-            color: #5c4033; /* Warm crust brown */
-            letter-spacing: -0.5px;
-        }
-
-        /* Main Content Area - Centered */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            max-width: 650px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        /* Verse of the Day Card */
-        .verse-card {
-            background-color: #ffffff;
-            padding: 3rem 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(92, 64, 51, 0.08);
-            text-align: center;
-            width: 100%;
-            border: 1px solid #efe9e0;
-        }
-
-        .verse-label {
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #9c7a54;
-            margin-bottom: 1.25rem;
-        }
-
-        .verse-text {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 1.5rem;
-            line-height: 1.6;
-            color: #2d2926;
-            margin-bottom: 1.25rem;
-        }
-
-        .verse-reference {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #6e5d4f;
-        }
-
-        /* Buttons Section - Spaced Below */
-        .button-group {
-            margin-top: 3.5rem; /* Pushes buttons down "a little ways" */
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 0.85rem 1.75rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: 2px solid #5c4033;
-        }
-
-        .btn-primary {
-            background-color: #5c4033;
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-color: #463026;
-            border-color: #463026;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: #5c4033;
-        }
-
-        .btn-secondary:hover {
-            background-color: #f0e8de;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="{{url_for('static', filename='/script.js')}}" defer></script>
 </head>
 <body>
 
@@ -130,14 +16,11 @@
     <main>
         <section class="verse-card">
             <div class="verse-label">Verse of the Day</div>
-            <blockquote class="verse-text">
-                "Give us today our daily bread."
-            </blockquote>
-            <cite class="verse-reference">— Matthew 6:11</cite>
+            <h1 class="verse-text">{{vod}}</h1>
         </section>
 
         <div class="button-group">
-            <button class="btn btn-primary">How can I eat?</button>
+            <button id="button" class="btn btn-primary" onclick="click();">How can I eat?</button>
             <button class="btn btn-secondary">Find some bread</button>
         </div>
     </main>
