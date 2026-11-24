@@ -14,7 +14,7 @@ def index():
 @app.post('/update_vod')
 def update_vod():
     vod_key = environ.get('vod_key', 'false')
-    vod_request = request.get_json()['vod_key']
+    vod_request = request.get_json()['extendedData']['vod_key']
 
     if vod_key == vod_request:
         return jsonify({'return': 'success'})
