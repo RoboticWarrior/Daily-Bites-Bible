@@ -17,9 +17,9 @@ def update_vod():
     vod_request = request.get_json()['extendedData']['vod_key']
 
     if vod_key == vod_request:
-        return jsonify({'return': 'success'})
+        return 'success'
     
-    return jsonify({'return': 'fail'})
+    return 'fail'
 
 
 if __name__ == '__main__':
