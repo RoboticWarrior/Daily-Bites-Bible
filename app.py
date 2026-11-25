@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from os import environ
 from data.read import read
-#from data.vod import vod
 
 app = Flask(__name__)
 
@@ -14,7 +13,9 @@ def index():
 @app.post('/update_vod')
 def update_vod():
     vod_key = environ.get('vod_key', 'false')
-    vod_request = request.get_json()['extendedData']['vod_key']
+    vod_request = 'none'
+    try: vod_request = request.get_json()['extendedData']['vod_key']
+    except: vod_request = 'fail'
 
     if vod_key == vod_request:
         return 'success'

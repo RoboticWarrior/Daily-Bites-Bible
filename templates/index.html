@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Bites</title>
     <link rel="stylesheet" href="/static/style.css">
-    <script src="{{url_for('static', filename='/script.js')}}" defer></script>
+    <script src="{{url_for('static', filename='script.js')}}" defer></script>
 </head>
 <body>
-
     <header>
         <h1>Daily Bites</h1>
     </header>
 
-    <main>
+    <main id="main_page">
         <section class="verse-card">
             <div class="verse-label">Verse of the Day</div>
             <h1 class="verse-text">{{vod}}</h1>
         </section>
 
         <div class="button-group">
-            <button id="button" class="btn btn-primary" onclick="click();">How can I eat?</button>
+            <button id="button" class="btn btn-primary" onclick="button_func()">How can I eat?</button>
             <button class="btn btn-secondary">Find some bread</button>
         </div>
     </main>
 
+    <!--<main id="find_section" style="display: none;">
+        <section class="verse-card">
+            <div class="verse-card">Verse</div>
+        </section>
+    </main>-->
 </body>
 </html>
